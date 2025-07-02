@@ -28,7 +28,7 @@ class _RendomScreenState extends State<RendomScreen> {
                       ),
                     ),
                   ),
-                  Positioned.fill(
+                  Positioned(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -105,7 +105,7 @@ class _RendomScreenState extends State<RendomScreen> {
                       ),
                     ),
                   ),
-                  Positioned.fill(
+                  Positioned(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -182,7 +182,7 @@ class _RendomScreenState extends State<RendomScreen> {
                       ),
                     ),
                   ),
-                  Positioned.fill(
+                  Positioned(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
