@@ -16,6 +16,7 @@ class _RendomScreenState extends State<OnboardScreen> {
       child: Scaffold(
         body: Stack(
           children: [
+            // page view
             PageView(
               controller: _controller,
               children: [
@@ -253,6 +254,7 @@ class _RendomScreenState extends State<OnboardScreen> {
                 ),
               ],
             ),
+            // indicator
             Positioned(
               bottom: 20,
               left: 0,
