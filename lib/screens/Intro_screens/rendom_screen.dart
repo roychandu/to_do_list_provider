@@ -38,7 +38,38 @@ class _RendomScreenState extends State<RendomScreen> {
                       children: [
                         Image.asset('assets/onboard1.png'),
                         SizedBox(height: 50),
-                        Container(height: 20, color: Colors.red),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 6),
+                              width: 24,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 6),
+                              width: 24,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: Colors.white38,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 6),
+                              width: 24,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: Colors.white38,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                          ],
+                        ),
                         SizedBox(height: 70),
                         Center(
                           child: Text(
@@ -106,7 +137,38 @@ class _RendomScreenState extends State<RendomScreen> {
                       children: [
                         Image.asset('assets/onboard2.png'),
                         SizedBox(height: 50),
-                        Container(height: 20, color: Colors.red),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 6),
+                              width: 24,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: Colors.white38,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 6),
+                              width: 24,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 6),
+                              width: 24,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: Colors.white38,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                          ],
+                        ),
                         SizedBox(height: 70),
                         Center(
                           child: Text(
@@ -177,7 +239,38 @@ class _RendomScreenState extends State<RendomScreen> {
                       children: [
                         Image.asset('assets/onboard3.png'),
                         SizedBox(height: 50),
-                        Container(height: 20, color: Colors.red),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 6),
+                              width: 24,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: Colors.white38,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 6),
+                              width: 24,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: Colors.white38,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(horizontal: 6),
+                              width: 24,
+                              height: 4,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                          ],
+                        ),
                         SizedBox(height: 70),
                         Center(
                           child: Text(
