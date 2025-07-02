@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:to_do_list_provider/screens/Intro_screens/rendom_screen.dart';
+import 'package:to_do_list_provider/screens/Intro_screens/onboard_screen.dart';
 
 class SplaceScreen extends StatefulWidget {
   const SplaceScreen({super.key});
@@ -18,7 +18,7 @@ class _SplaceScreenState extends State<SplaceScreen> {
     Timer(Duration(seconds: 3), () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => RendomScreen()),
+        MaterialPageRoute(builder: (context) => OnboardScreen()),
       );
     });
   }
