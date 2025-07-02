@@ -8,11 +8,13 @@ class RendomScreen extends StatefulWidget {
 }
 
 class _RendomScreenState extends State<RendomScreen> {
+  PageController _controller = PageController(initialPage: 0);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         body: PageView(
+          controller: _controller,
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20),
@@ -21,7 +23,9 @@ class _RendomScreenState extends State<RendomScreen> {
                   Positioned(
                     top: 0,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _controller.jumpToPage(2);
+                      },
                       child: Text(
                         'Skip',
                         style: TextStyle(color: Colors.white, fontSize: 16),
@@ -65,27 +69,16 @@ class _RendomScreenState extends State<RendomScreen> {
                   ),
                   Positioned(
                     bottom: 20,
-                    left: 0,
                     right: 0,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        TextButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Back',
-                            style: TextStyle(color: Colors.white, fontSize: 16),
-                          ),
-                        ),
-                        ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xff8875FF),
-                            foregroundColor: Color(0xFFFFFFFF),
-                          ),
-                          child: Text('Next'),
-                        ),
-                      ],
+                    child: ElevatedButton(
+                      onPressed: () {
+                        _controller.jumpToPage(1);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Color(0xff8875FF),
+                        foregroundColor: Color(0xFFFFFFFF),
+                      ),
+                      child: Text('Next'),
                     ),
                   ),
                 ],
@@ -98,7 +91,9 @@ class _RendomScreenState extends State<RendomScreen> {
                   Positioned(
                     top: 0,
                     child: TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _controller.jumpToPage(2);
+                      },
                       child: Text(
                         'Skip',
                         style: TextStyle(color: Colors.white, fontSize: 16),
@@ -148,14 +143,18 @@ class _RendomScreenState extends State<RendomScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            _controller.jumpToPage(0);
+                          },
                           child: Text(
                             'Back',
                             style: TextStyle(color: Colors.white, fontSize: 16),
                           ),
                         ),
                         ElevatedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            _controller.jumpToPage(2);
+                          },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color(0xff8875FF),
                             foregroundColor: Color(0xFFFFFFFF),
@@ -172,16 +171,6 @@ class _RendomScreenState extends State<RendomScreen> {
               padding: const EdgeInsets.only(left: 20, right: 20),
               child: Stack(
                 children: [
-                  Positioned(
-                    top: 0,
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Skip',
-                        style: TextStyle(color: Colors.white, fontSize: 16),
-                      ),
-                    ),
-                  ),
                   Positioned(
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -225,7 +214,9 @@ class _RendomScreenState extends State<RendomScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            _controller.jumpToPage(1);
+                          },
                           child: Text(
                             'Back',
                             style: TextStyle(color: Colors.white, fontSize: 16),
