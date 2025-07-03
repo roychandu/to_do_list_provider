@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:to_do_list_provider/common_widgets/CustomElevated_button.dart';
+import 'package:to_do_list_provider/common_widgets/Custom_button.dart';
 import 'package:to_do_list_provider/screens/Intro_screens/start_screen.dart';
 
 class OnboardScreen extends StatefulWidget {
@@ -28,14 +28,16 @@ class _RendomScreenState extends State<OnboardScreen> {
                     children: [
                       Positioned(
                         top: 0,
-                        child: TextButton(
+                        child: CustomTextButton(
+                          text: 'Skip',
                           onPressed: () {
-                            _controller.jumpToPage(2);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => StartScreen(),
+                              ),
+                            );
                           },
-                          child: Text(
-                            'Skip',
-                            style: TextStyle(color: Colors.white, fontSize: 16),
-                          ),
                         ),
                       ),
                       Positioned(
@@ -94,14 +96,16 @@ class _RendomScreenState extends State<OnboardScreen> {
                     children: [
                       Positioned(
                         top: 0,
-                        child: TextButton(
+                        child: CustomTextButton(
+                          text: 'Skip',
                           onPressed: () {
-                            _controller.jumpToPage(2);
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => StartScreen(),
+                              ),
+                            );
                           },
-                          child: Text(
-                            'Skip',
-                            style: TextStyle(color: Colors.white, fontSize: 16),
-                          ),
                         ),
                       ),
                       Positioned(
@@ -148,17 +152,11 @@ class _RendomScreenState extends State<OnboardScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            TextButton(
+                            CustomTextButton(
+                              text: 'Back',
                               onPressed: () {
                                 _controller.jumpToPage(0);
                               },
-                              child: Text(
-                                'Back',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                ),
-                              ),
                             ),
                             CustomelevatedButton(
                               text: 'Next',
@@ -220,17 +218,11 @@ class _RendomScreenState extends State<OnboardScreen> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            TextButton(
+                            CustomTextButton(
+                              text: 'Back',
                               onPressed: () {
                                 _controller.jumpToPage(1);
                               },
-                              child: Text(
-                                'Back',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                ),
-                              ),
                             ),
                             CustomelevatedButton(
                               text: 'Get Started',
