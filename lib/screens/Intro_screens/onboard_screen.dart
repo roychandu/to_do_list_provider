@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:to_do_list_provider/common_widgets/CustomElevated_button.dart';
+import 'package:to_do_list_provider/screens/Intro_screens/start_screen.dart';
 
 class OnboardScreen extends StatefulWidget {
   const OnboardScreen({super.key});
@@ -74,17 +76,13 @@ class _RendomScreenState extends State<OnboardScreen> {
                         ),
                       ),
                       Positioned(
-                        bottom: 20,
+                        bottom: 40,
                         right: 0,
-                        child: ElevatedButton(
+                        child: CustomelevatedButton(
+                          text: 'Next',
                           onPressed: () {
                             _controller.jumpToPage(1);
                           },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xff8875FF),
-                            foregroundColor: Color(0xFFFFFFFF),
-                          ),
-                          child: Text('Next'),
                         ),
                       ),
                     ],
@@ -144,7 +142,7 @@ class _RendomScreenState extends State<OnboardScreen> {
                         ),
                       ),
                       Positioned(
-                        bottom: 20,
+                        bottom: 40,
                         left: 0,
                         right: 0,
                         child: Row(
@@ -162,15 +160,11 @@ class _RendomScreenState extends State<OnboardScreen> {
                                 ),
                               ),
                             ),
-                            ElevatedButton(
+                            CustomelevatedButton(
+                              text: 'Next',
                               onPressed: () {
                                 _controller.jumpToPage(2);
                               },
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xff8875FF),
-                                foregroundColor: Color(0xFFFFFFFF),
-                              ),
-                              child: Text('Next'),
                             ),
                           ],
                         ),
@@ -220,7 +214,7 @@ class _RendomScreenState extends State<OnboardScreen> {
                         ),
                       ),
                       Positioned(
-                        bottom: 20,
+                        bottom: 40,
                         left: 0,
                         right: 0,
                         child: Row(
@@ -238,13 +232,16 @@ class _RendomScreenState extends State<OnboardScreen> {
                                 ),
                               ),
                             ),
-                            ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: Color(0xff8875FF),
-                                foregroundColor: Color(0xFFFFFFFF),
-                              ),
-                              child: Text('Next'),
+                            CustomelevatedButton(
+                              text: 'Get Started',
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => StartScreen(),
+                                  ),
+                                );
+                              },
                             ),
                           ],
                         ),
