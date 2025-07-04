@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:to_do_list_provider/common_widgets/Custom_button.dart';
 import 'package:to_do_list_provider/common_widgets/Input_text.dart';
 import 'package:to_do_list_provider/common_widgets/divider_with_text.dart';
@@ -19,33 +20,49 @@ class _RegisterScreenState extends State<RegisterScreen> {
           backgroundColor: Colors.black,
           foregroundColor: Colors.white,
         ),
-        body: Column(
-          spacing: 30,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Register',
-              style: TextStyle(color: Colors.white, fontSize: 32),
-            ),
-            CustomInputText(text: 'Username', hint: 'Enter your Username'),
-            CustomInputText(text: 'Password', hint: 'Enter your Password'),
-            CustomInputText(
-              text: 'Confirm Password',
-              hint: 'Re-Write your password',
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: CustomelevatedButton(text: 'Register', onPressed: () {}),
-            ),
-            DividerWithText(),
-            SizedBox(
-              width: double.infinity,
-              child: CustomOutlinedButton(
-                text: 'Resigter with Google',
-                onPressed: () {},
+        body: Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: Column(
+            spacing: 30,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Register',
+                style: TextStyle(color: Colors.white, fontSize: 32),
               ),
-            ),
-          ],
+              CustomInputText(text: 'Username', hint: 'Enter your Username'),
+              CustomInputText(text: 'Password', hint: 'Enter your Password'),
+              CustomInputText(
+                text: 'Confirm Password',
+                hint: 'Re-Write your password',
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: CustomelevatedButton(text: 'Register', onPressed: () {}),
+              ),
+              DividerWithText(),
+              SizedBox(
+                width: double.infinity,
+                child: CustomOutlinedButton(
+                  text: 'Resigter with Google',
+                  onPressed: () {},
+                  image: Image.asset('assets/google.png'),
+                ),
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: CustomOutlinedButton(
+                  text: 'Resigter with facebook',
+                  onPressed: () {},
+                  image: Image.asset(
+                    'assets/facebook.png',
+                    width: 32,
+                    height: 32,
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

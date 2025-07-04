@@ -46,12 +46,14 @@ class _CustomTextButtonState extends State<CustomTextButton> {
 }
 
 class CustomOutlinedButton extends StatelessWidget {
+  final Image image;
   final String text;
   final VoidCallback onPressed;
   const CustomOutlinedButton({
     super.key,
     required this.text,
     required this.onPressed,
+    required this.image,
   });
 
   @override
@@ -59,7 +61,7 @@ class CustomOutlinedButton extends StatelessWidget {
     return OutlinedButton.icon(
       onPressed: onPressed,
       label: Text(text, style: TextStyle(color: Colors.white)),
-      icon: Image.asset('assets/google.png'),
+      icon: image,
       style: OutlinedButton.styleFrom(
         side: BorderSide(color: Color(0xff8875FF)),
       ),
