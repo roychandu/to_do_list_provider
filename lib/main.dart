@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list_provider/screens/Intro_screens/splace_screen.dart';
+import 'package:to_do_list_provider/screens/login_screens/register_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(scaffoldBackgroundColor: Colors.black),
-      home: SplaceScreen(),
+      home: RegisterScreen(),
     );
   }
 }

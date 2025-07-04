@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list_provider/common_widgets/Custom_button.dart';
+import 'package:to_do_list_provider/screens/login_screens/register_screen.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen({super.key});
@@ -54,7 +55,14 @@ class StartScreen extends StatelessWidget {
                         style: OutlinedButton.styleFrom(
                           side: BorderSide(color: Color(0xff8875FF)),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => RegisterScreen(),
+                            ),
+                          );
+                        },
                         child: Text(
                           'Create Account',
                           style: TextStyle(color: Colors.white),
