@@ -38,9 +38,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: CustomelevatedButton(text: 'Register', onPressed: () {}),
             ),
             DividerWithText(),
-            CustomOutlinedButton(
-              text: 'Resigter with Google',
-              onPressed: () {},
+            SizedBox(
+              width: double.infinity,
+              child: CustomOutlinedButton(
+                text: 'Resigter with Google',
+                onPressed: () {},
+              ),
             ),
           ],
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomelevatedButton extends StatelessWidget {
   final String text;
@@ -58,7 +59,7 @@ class CustomOutlinedButton extends StatelessWidget {
     return OutlinedButton.icon(
       onPressed: onPressed,
       label: Text(text, style: TextStyle(color: Colors.white)),
-      icon: Icon(Icons.cloud, color: Colors.white),
+      icon: Image.asset('assets/google.png'),
       style: OutlinedButton.styleFrom(
         side: BorderSide(color: Color(0xff8875FF)),
       ),
