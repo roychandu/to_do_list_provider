@@ -43,3 +43,25 @@ class _CustomTextButtonState extends State<CustomTextButton> {
     );
   }
 }
+
+class CustomOutlinedButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+  const CustomOutlinedButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton.icon(
+      onPressed: onPressed,
+      label: Text(text, style: TextStyle(color: Colors.white)),
+      icon: Icon(Icons.cloud, color: Colors.white),
+      style: OutlinedButton.styleFrom(
+        side: BorderSide(color: Color(0xff8875FF)),
+      ),
+    );
+  }
+}

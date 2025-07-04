@@ -14,7 +14,7 @@ class CustomInputText extends StatelessWidget {
         TextField(
           style: TextStyle(color: Colors.white),
           decoration: InputDecoration(
-            border: OutlineInputBorder(),
+            border: OutlineInputBorder(borderRadius: BorderRadius.circular(8)),
             labelText: text,
             labelStyle: TextStyle(color: Colors.blueGrey, fontSize: 16),
             contentPadding: EdgeInsets.only(left: 20),
