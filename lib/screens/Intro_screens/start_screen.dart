@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list_provider/common_widgets/Custom_button.dart';
+import 'package:to_do_list_provider/screens/login_screens/login_screen.dart';
 import 'package:to_do_list_provider/screens/login_screens/register_screen.dart';
 
 class StartScreen extends StatelessWidget {
@@ -45,7 +46,14 @@ class StartScreen extends StatelessWidget {
                       width: double.infinity,
                       child: CustomelevatedButton(
                         text: 'Login',
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginScreen(),
+                            ),
+                          );
+                        },
                       ),
                     ),
                     SizedBox(height: 20),

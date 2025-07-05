@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:to_do_list_provider/common_widgets/Custom_button.dart';
 import 'package:to_do_list_provider/common_widgets/Input_text.dart';
 import 'package:to_do_list_provider/common_widgets/divider_with_text.dart';
+import 'package:to_do_list_provider/screens/login_screens/register_screen.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -69,7 +70,12 @@ class _LoginScreenState extends State<LoginScreen> {
               Center(
                 child: CustomTextButton(
                   text: "Don't have an account? Register",
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => RegisterScreen()),
+                    );
+                  },
                 ),
               ),
             ],

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:to_do_list_provider/common_widgets/Custom_button.dart';
 import 'package:to_do_list_provider/common_widgets/Input_text.dart';
 import 'package:to_do_list_provider/common_widgets/divider_with_text.dart';
+import 'package:to_do_list_provider/screens/login_screens/login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -76,7 +76,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
               Center(
                 child: CustomTextButton(
                   text: 'Already have an account? Login',
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => LoginScreen()),
+                    );
+                  },
                 ),
               ),
             ],
