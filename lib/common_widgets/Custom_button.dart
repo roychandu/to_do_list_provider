@@ -63,7 +63,7 @@ class CustomOutlinedButton extends StatelessWidget {
       label: Text(text, style: TextStyle(color: Colors.white)),
       icon: image,
       style: OutlinedButton.styleFrom(
-        side: BorderSide(color: Color(0xff8875FF)),
+        side: BorderSide(color: Color(0xff8875FF), width: 2),
       ),
     );
   }

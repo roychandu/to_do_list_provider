@@ -12,6 +12,9 @@ class RegisterScreen extends StatefulWidget {
 }
 
 class _RegisterScreenState extends State<RegisterScreen> {
+  TextEditingController passwordText = TextEditingController();
+  TextEditingController confirmPasswordText = TextEditingController();
+  TextEditingController UsernamedText = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -30,11 +33,20 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 'Register',
                 style: TextStyle(color: Colors.white, fontSize: 32),
               ),
-              CustomInputText(text: 'Username', hint: 'Enter your Username'),
-              CustomInputText(text: 'Password', hint: 'Enter your Password'),
               CustomInputText(
+                text: 'Username',
+                hint: 'Enter your Username',
+                controller: UsernamedText,
+              ),
+              CustomInputTextWithVisiable(
+                text: 'Password',
+                hint: 'Enter your Password',
+                controller: passwordText,
+              ),
+              CustomInputTextWithVisiable(
                 text: 'Confirm Password',
                 hint: 'Re-Write your password',
+                controller: confirmPasswordText,
               ),
               SizedBox(
                 width: double.infinity,
@@ -60,6 +72,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     height: 32,
                   ),
                 ),
+              ),
+              CustomTextButton(
+                text: 'Already have an account?Login',
+                onPressed: () {},
               ),
             ],
           ),
