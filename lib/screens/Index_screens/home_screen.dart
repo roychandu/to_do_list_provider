@@ -9,14 +9,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int selected = 0;
-
-  final List<Widget> _pages = [
-    Center(child: Text('Home', style: TextStyle(fontSize: 40))),
-    Center(child: Text('Calender', style: TextStyle(fontSize: 40))),
-    Center(child: Text('Focus', style: TextStyle(fontSize: 40))),
-    Center(child: Text('Profile', style: TextStyle(fontSize: 40))),
+  final List<Widget> _TabScreens = [
+    Center(child: Text("🏠 Home", style: TextStyle(fontSize: 24))),
+    Center(child: Text("📅 Calendar", style: TextStyle(fontSize: 24))),
+    Center(child: Text("⏰ Focus", style: TextStyle(fontSize: 24))),
+    Center(child: Text("👤 Profile", style: TextStyle(fontSize: 24))),
   ];
+  int selected = 2;
 
   @override
   Widget build(BuildContext context) {
@@ -43,14 +42,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-        body: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Center(
-              child: Text('01', style: TextStyle(color: Colors.white)),
-            ),
-          ],
-        ),
+        body: _TabScreens[selected],
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Color(0xff363636),
           type: BottomNavigationBarType.fixed,
@@ -105,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Icon(Icons.add, color: Colors.white),
           shape: CircleBorder(),
         ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );
   }
