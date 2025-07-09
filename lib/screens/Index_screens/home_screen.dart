@@ -33,6 +33,36 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: Text('01', style: TextStyle(color: Colors.white)),
+            ),
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: 0,
+
+          items: [
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/index.png'),
+              label: "Index",
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/calendar.png'),
+              label: "Celender",
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/clock.png'),
+              label: "Focuse",
+            ),
+            BottomNavigationBarItem(
+              icon: Image.asset('assets/profile.png'),
+              label: "Profile",
+            ),
+          ],
+        ),
       ),
     );
   }
