@@ -43,7 +43,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         bottomNavigationBar: BottomNavigationBar(
           currentIndex: 0,
-
           items: [
             BottomNavigationBarItem(
               icon: Image.asset('assets/index.png'),
@@ -58,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
               label: "Focuse",
             ),
             BottomNavigationBarItem(
-              icon: Image.asset('assets/profile.png'),
+              icon: Image.asset('assets/profile_icon.png'),
               label: "Profile",
             ),
           ],

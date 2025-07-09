@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list_provider/screens/Index_screens/home_screen.dart';
-import 'package:to_do_list_provider/screens/Intro_screens/splace_screen.dart';
-import 'package:to_do_list_provider/screens/login_screens/login_screen.dart';
-import 'package:to_do_list_provider/screens/login_screens/register_screen.dart';
 
 void main() {
   runApp(const MyApp());
