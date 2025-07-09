@@ -9,7 +9,14 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int selected = 2;
+  int selected = 0;
+
+  final List<Widget> _pages = [
+    Center(child: Text('Home', style: TextStyle(fontSize: 40))),
+    Center(child: Text('Calender', style: TextStyle(fontSize: 40))),
+    Center(child: Text('Focus', style: TextStyle(fontSize: 40))),
+    Center(child: Text('Profile', style: TextStyle(fontSize: 40))),
+  ];
 
   @override
   Widget build(BuildContext context) {
