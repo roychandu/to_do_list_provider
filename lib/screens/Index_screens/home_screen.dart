@@ -12,8 +12,16 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        drawer: Container(width: 200, color: Colors.white),
         appBar: AppBar(
-          leading: Image.asset('assets/menu_icon.png'),
+          leading: Builder(
+            builder: (context) => IconButton(
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              icon: Image.asset('assets/menu_icon.png'),
+            ),
+          ),
           title: Text('Index'),
           centerTitle: true,
           actions: [
