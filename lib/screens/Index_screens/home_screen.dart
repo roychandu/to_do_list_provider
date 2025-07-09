@@ -92,6 +92,14 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {},
+          backgroundColor: TColor.secondaryText,
+          child: Icon(Icons.add, color: Colors.white),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusGeometry.circular(50),
+          ),
+        ),
       ),
     );
   }
