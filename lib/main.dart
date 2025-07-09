@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_list_provider/screens/Index_screens/home_screen.dart';
 import 'package:to_do_list_provider/screens/Intro_screens/splace_screen.dart';
 import 'package:to_do_list_provider/screens/login_screens/login_screen.dart';
 import 'package:to_do_list_provider/screens/login_screens/register_screen.dart';
@@ -15,8 +16,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(scaffoldBackgroundColor: Colors.black),
-      home: SplaceScreen(),
+      theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          color: Colors.black,
+          foregroundColor: Colors.white,
+        ),
+        scaffoldBackgroundColor: Colors.black,
+      ),
+      home: HomeScreen(),
     );
   }
 }
