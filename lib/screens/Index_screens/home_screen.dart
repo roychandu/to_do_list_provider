@@ -96,10 +96,9 @@ class _HomeScreenState extends State<HomeScreen> {
           onPressed: () {},
           backgroundColor: TColor.secondaryText,
           child: Icon(Icons.add, color: Colors.white),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadiusGeometry.circular(50),
-          ),
+          shape: CircleBorder(),
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
   }
