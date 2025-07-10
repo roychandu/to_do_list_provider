@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
 class HomeTabScreen extends StatefulWidget {
-  const HomeTabScreen({super.key});
+  List<String> Tasks = [];
+  HomeTabScreen({super.key, required this.Tasks});
 
   @override
   State<HomeTabScreen> createState() => _HomeTabScreenState();
 }
 
 class _HomeTabScreenState extends State<HomeTabScreen> {
-  List<String> Tasks = [];
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        body: Tasks.isEmpty
+        body: widget.Tasks.isEmpty
             ? Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -35,11 +35,11 @@ class _HomeTabScreenState extends State<HomeTabScreen> {
                 ],
               )
             : ListView.builder(
-                itemCount: Tasks.length,
+                itemCount: widget.Tasks.length,
                 itemBuilder: (context, index) {
                   return Center(
                     child: Text(
-                      Tasks[index],
+                      widget.Tasks[index],
                       style: TextStyle(fontSize: 30, color: Colors.white),
                     ),
                   );

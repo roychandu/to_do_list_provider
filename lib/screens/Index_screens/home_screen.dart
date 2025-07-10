@@ -13,8 +13,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<Widget> _TabScreens = [
-    HomeTabScreen(),
+  late List<String> homeTask = [];
+  late final List<Widget> _TabScreens = [
+    HomeTabScreen(Tasks: homeTask),
     CelenderTabScreen(),
     FocuseTabScreen(),
     ProfileTabScreen(),
