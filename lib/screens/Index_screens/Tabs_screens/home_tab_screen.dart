@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_list_provider/common_widgets/color_extension.dart';
 
 class HomeTabScreen extends StatefulWidget {
   final List<String> Tasks;
@@ -37,10 +38,20 @@ class _HomeTabScreenState extends State<HomeTabScreen> {
             : ListView.builder(
                 itemCount: widget.Tasks.length,
                 itemBuilder: (context, index) {
-                  return Center(
-                    child: Text(
-                      widget.Tasks[index],
-                      style: TextStyle(fontSize: 30, color: Colors.white),
+                  return InkWell(
+                    onTap: () {
+                      showModalBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return Container(height: 400, color: TColor.primary);
+                        },
+                      );
+                    },
+                    child: Center(
+                      child: Text(
+                        widget.Tasks[index],
+                        style: TextStyle(fontSize: 30, color: Colors.white),
+                      ),
                     ),
                   );
                 },
