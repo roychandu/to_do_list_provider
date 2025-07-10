@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_list_provider/common_widgets/color_extension.dart';
+import 'package:to_do_list_provider/screens/Index_screens/Tabs_screens/celender_tab_screen.dart';
+import 'package:to_do_list_provider/screens/Index_screens/Tabs_screens/focuse_tab_screen.dart';
+import 'package:to_do_list_provider/screens/Index_screens/Tabs_screens/home_tab_screen.dart';
+import 'package:to_do_list_provider/screens/Index_screens/Tabs_screens/profile_tab_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,30 +14,10 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _TabScreens = [
-    Center(
-      child: Text(
-        "🏠 Home",
-        style: TextStyle(fontSize: 24, color: Colors.white),
-      ),
-    ),
-    Center(
-      child: Text(
-        "📅 Calendar",
-        style: TextStyle(fontSize: 24, color: Colors.white),
-      ),
-    ),
-    Center(
-      child: Text(
-        "⏰ Focus",
-        style: TextStyle(fontSize: 24, color: Colors.white),
-      ),
-    ),
-    Center(
-      child: Text(
-        "👤 Profile",
-        style: TextStyle(fontSize: 24, color: Colors.white),
-      ),
-    ),
+    HomeTabScreen(),
+    CelenderTabScreen(),
+    FocuseTabScreen(),
+    ProfileTabScreen(),
   ];
   int selected = 0;
 
