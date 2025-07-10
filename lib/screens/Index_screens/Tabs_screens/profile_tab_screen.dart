@@ -10,6 +10,15 @@ class ProfileTabScreen extends StatefulWidget {
 class _ProfileTabScreenState extends State<ProfileTabScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold());
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Text(
+            'Profile',
+            style: TextStyle(fontSize: 40, color: Colors.white),
+          ),
+        ),
+      ),
+    );
   }
 }

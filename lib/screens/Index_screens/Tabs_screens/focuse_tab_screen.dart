@@ -10,6 +10,15 @@ class FocuseTabScreen extends StatefulWidget {
 class _FocuseTabScreenState extends State<FocuseTabScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold());
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Text(
+            'focuse',
+            style: TextStyle(fontSize: 40, color: Colors.white),
+          ),
+        ),
+      ),
+    );
   }
 }

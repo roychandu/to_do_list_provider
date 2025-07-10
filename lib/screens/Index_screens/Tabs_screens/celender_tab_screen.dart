@@ -10,6 +10,15 @@ class CelenderTabScreen extends StatefulWidget {
 class _CelenderTabScreenState extends State<CelenderTabScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(child: Scaffold());
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Text(
+            'Celender',
+            style: TextStyle(fontSize: 40, color: Colors.white),
+          ),
+        ),
+      ),
+    );
   }
 }
