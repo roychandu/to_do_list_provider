@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class HomeTabScreen extends StatefulWidget {
-  List<String> Tasks = [];
-  HomeTabScreen({super.key, required this.Tasks});
+  final List<String> Tasks;
+  const HomeTabScreen({super.key, required this.Tasks});
 
   @override
   State<HomeTabScreen> createState() => _HomeTabScreenState();

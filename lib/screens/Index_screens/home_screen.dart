@@ -14,9 +14,11 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late List<String> homeTask = [];
-  late final List<Widget> _TabScreens = [
+  late List<String> celenderTask = [];
+  late List<String> FocusTask = [];
+  List<Widget> get tabScreens => [
     HomeTabScreen(Tasks: homeTask),
-    CelenderTabScreen(),
+    CelenderTabScreen(celenderTask: celenderTask),
     FocuseTabScreen(),
     ProfileTabScreen(),
   ];
@@ -24,6 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print('object');
     return SafeArea(
       child: Scaffold(
         drawer: Container(width: 200, color: Colors.white),
@@ -48,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ],
         ),
-        body: _TabScreens[selected],
+        body: tabScreens[selected],
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Color(0xff363636),
           type: BottomNavigationBarType.fixed,
@@ -98,7 +101,17 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
         floatingActionButton: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () {
+            setState(() {
+              if (selected == 0) {
+                homeTask.add('value0');
+              } else if (selected == 1) {
+                celenderTask.add('value1');
+              } else if (selected == 2) {
+                FocusTask.add('value2');
+              }
+            });
+          },
           backgroundColor: TColor.secondaryText,
           child: Icon(Icons.add, color: Colors.white),
           shape: CircleBorder(),
