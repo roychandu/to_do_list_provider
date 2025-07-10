@@ -10,12 +10,32 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final List<Widget> _TabScreens = [
-    Center(child: Text("🏠 Home", style: TextStyle(fontSize: 24))),
-    Center(child: Text("📅 Calendar", style: TextStyle(fontSize: 24))),
-    Center(child: Text("⏰ Focus", style: TextStyle(fontSize: 24))),
-    Center(child: Text("👤 Profile", style: TextStyle(fontSize: 24))),
+    Center(
+      child: Text(
+        "🏠 Home",
+        style: TextStyle(fontSize: 24, color: Colors.white),
+      ),
+    ),
+    Center(
+      child: Text(
+        "📅 Calendar",
+        style: TextStyle(fontSize: 24, color: Colors.white),
+      ),
+    ),
+    Center(
+      child: Text(
+        "⏰ Focus",
+        style: TextStyle(fontSize: 24, color: Colors.white),
+      ),
+    ),
+    Center(
+      child: Text(
+        "👤 Profile",
+        style: TextStyle(fontSize: 24, color: Colors.white),
+      ),
+    ),
   ];
-  int selected = 2;
+  int selected = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: const EdgeInsets.only(right: 20),
               child: CircleAvatar(
+                radius: 35,
                 backgroundImage: AssetImage('assets/profile_image.png'),
               ),
             ),
