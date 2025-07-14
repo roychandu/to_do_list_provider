@@ -26,6 +26,62 @@ void _showBottomSheet(BuildContext context) {
             topRight: Radius.circular(20),
           ),
         ),
+        child: Column(
+          children: [
+            Text(
+              'Add Task',
+              style: TextStyle(color: TColor.primaryText, fontSize: 25),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                hint: Text(
+                  'Enter your task',
+                  style: TextStyle(color: TColor.primaryText, fontSize: 18),
+                ),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: TColor.primaryText),
+                ),
+              ),
+            ),
+            TextField(
+              decoration: InputDecoration(
+                hint: Text(
+                  'Description',
+                  style: TextStyle(color: TColor.primaryText, fontSize: 18),
+                ),
+                border: OutlineInputBorder(borderSide: BorderSide.none),
+              ),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.timer_outlined,
+                        color: TColor.primaryText,
+                      ),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Image.asset('assets/tag_icon.png'),
+                    ),
+                    IconButton(
+                      onPressed: () {},
+                      icon: Image.asset('assets/flag_icon.png'),
+                    ),
+                  ],
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Image.asset('assets/send_icon.png'),
+                ),
+              ],
+            ),
+          ],
+        ),
       );
     },
   );
@@ -42,6 +98,15 @@ class _HomeScreenState extends State<HomeScreen> {
     ProfileTabScreen(),
   ];
   int selected = 0;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _showBottomSheet(context);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
