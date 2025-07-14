@@ -12,6 +12,25 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+void _showBottomSheet(BuildContext context) {
+  double sizeWidth = MediaQuery.of(context).size.width;
+  showModalBottomSheet(
+    context: context,
+    builder: (context) {
+      return Container(
+        width: sizeWidth * 1,
+        decoration: BoxDecoration(
+          color: TColor.primary,
+          borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          ),
+        ),
+      );
+    },
+  );
+}
+
 class _HomeScreenState extends State<HomeScreen> {
   late List<String> homeTask = [];
   late List<String> celenderTask = [];
@@ -104,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
           onPressed: () {
             setState(() {
               if (selected == 0) {
-                homeTask.add('value0');
+                _showBottomSheet(context);
               } else if (selected == 1) {
                 celenderTask.add('value1');
               } else if (selected == 2) {
