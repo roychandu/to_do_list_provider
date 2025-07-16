@@ -70,7 +70,7 @@ void _showBottomSheet(BuildContext context) {
                             builder: (context) => AlertDialog(
                               backgroundColor: TColor.primary,
                               content: Container(
-                                width: sizeWidth * .8,
+                                width: sizeWidth * 1,
 
                                 height: sizeheight * .4,
                                 child: TableCalendar(
@@ -78,6 +78,22 @@ void _showBottomSheet(BuildContext context) {
                                   firstDay: DateTime.utc(2010, 10, 16),
                                   lastDay: DateTime.utc(2030, 3, 14),
                                   calendarFormat: CalendarFormat.month,
+                                  calendarStyle: CalendarStyle(
+                                    defaultDecoration: BoxDecoration(
+                                      color: TColor.primaryTextBackground,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    defaultTextStyle: TextStyle(
+                                      color: TColor.primaryText,
+                                    ),
+                                    weekendDecoration: BoxDecoration(
+                                      color: TColor.primaryTextBackground,
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                    weekendTextStyle: TextStyle(
+                                      color: TColor.primaryText,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
