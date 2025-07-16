@@ -72,7 +72,7 @@ void _showBottomSheet(BuildContext context) {
                               content: Container(
                                 width: sizeWidth * 1,
 
-                                height: sizeheight * .4,
+                                height: sizeheight * .45,
                                 child: TableCalendar(
                                   focusedDay: DateTime.now(),
                                   firstDay: DateTime.utc(2010, 10, 16),
@@ -92,6 +92,10 @@ void _showBottomSheet(BuildContext context) {
                                     ),
                                     weekendTextStyle: TextStyle(
                                       color: TColor.primaryText,
+                                    ),
+                                    todayDecoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(8),
+                                      color: TColor.secondaryText,
                                     ),
                                   ),
                                 ),
