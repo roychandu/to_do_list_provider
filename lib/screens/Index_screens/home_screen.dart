@@ -74,6 +74,22 @@ void _showBottomSheet(BuildContext context) {
 
                                 height: sizeheight * .45,
                                 child: TableCalendar(
+                                  headerStyle: HeaderStyle(
+                                    titleTextStyle: TextStyle(
+                                      color: TColor.primaryText,
+                                    ),
+                                    leftChevronIcon: Icon(
+                                      Icons.arrow_back_ios,
+                                      color: TColor.primaryText,
+                                    ),
+                                    rightChevronIcon: Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: TColor.primaryText,
+                                    ),
+                                    formatButtonVisible: false,
+                                    titleCentered: true,
+                                  ),
+
                                   focusedDay: DateTime.now(),
                                   firstDay: DateTime.utc(2010, 10, 16),
                                   lastDay: DateTime.utc(2030, 3, 14),
