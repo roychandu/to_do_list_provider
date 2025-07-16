@@ -5,7 +5,6 @@ import 'package:to_do_list_provider/screens/Index_screens/Tabs_screens/celender_
 import 'package:to_do_list_provider/screens/Index_screens/Tabs_screens/focuse_tab_screen.dart';
 import 'package:to_do_list_provider/screens/Index_screens/Tabs_screens/home_tab_screen.dart';
 import 'package:to_do_list_provider/screens/Index_screens/Tabs_screens/profile_tab_screen.dart';
-import 'package:intl/intl.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -78,6 +77,7 @@ void _showBottomSheet(BuildContext context) {
                                   headerStyle: HeaderStyle(
                                     titleTextStyle: TextStyle(
                                       color: TColor.primaryText,
+                                      fontSize: 22,
                                     ),
                                     leftChevronIcon: Icon(
                                       Icons.arrow_back_ios,
