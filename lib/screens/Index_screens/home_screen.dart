@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:table_calendar/table_calendar.dart';
 import 'package:to_do_list_provider/common_widgets/color_extension.dart';
 import 'package:to_do_list_provider/screens/Index_screens/Tabs_screens/celender_tab_screen.dart';
 import 'package:to_do_list_provider/screens/Index_screens/Tabs_screens/focuse_tab_screen.dart';
@@ -14,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 void _showBottomSheet(BuildContext context) {
   double sizeWidth = MediaQuery.of(context).size.width;
+  double sizeheight = MediaQuery.of(context).size.height;
   showModalBottomSheet(
     context: context,
     builder: (context) {
@@ -62,7 +64,25 @@ void _showBottomSheet(BuildContext context) {
                   Row(
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              backgroundColor: TColor.primary,
+                              content: Container(
+                                width: sizeWidth * .8,
+
+                                height: sizeheight * .4,
+                                child: TableCalendar(
+                                  focusedDay: DateTime.now(),
+                                  firstDay: DateTime.utc(2010, 10, 16),
+                                  lastDay: DateTime.utc(2030, 3, 14),
+                                  calendarFormat: CalendarFormat.month,
+                                ),
+                              ),
+                            ),
+                          );
+                        },
                         icon: Icon(
                           Icons.timer_outlined,
                           color: TColor.primaryText,
