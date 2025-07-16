@@ -98,6 +98,12 @@ void _showBottomSheet(BuildContext context) {
                                       color: TColor.secondaryText,
                                     ),
                                   ),
+                                  daysOfWeekStyle: DaysOfWeekStyle(
+                                    weekdayStyle: TextStyle(
+                                      color: TColor.primaryText,
+                                    ),
+                                    weekendStyle: TextStyle(color: Colors.red),
+                                  ),
                                 ),
                               ),
                             ),
