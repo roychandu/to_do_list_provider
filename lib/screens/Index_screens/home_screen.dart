@@ -135,16 +135,10 @@ void _showBottomSheet(BuildContext context) {
                         onPressed: () {
                           showDialog(
                             context: context,
-                            builder: (context) => AlertDialog(
-                              content: Container(
-                                width: sizeWidth * .9,
-                                height: sizeheight * .5,
-                                child: TimePickerDialog(
-                                  initialTime: TimeOfDay(
-                                    hour: DateTime.now().hour,
-                                    minute: DateTime.now().minute,
-                                  ),
-                                ),
+                            builder: (context) => TimePickerDialog(
+                              initialTime: TimeOfDay(
+                                hour: DateTime.now().hour,
+                                minute: DateTime.now().minute,
                               ),
                             ),
                           );
