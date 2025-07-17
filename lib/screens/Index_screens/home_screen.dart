@@ -135,10 +135,17 @@ void _showBottomSheet(BuildContext context) {
                         onPressed: () {
                           showDialog(
                             context: context,
-                            builder: (context) => TimePickerDialog(
-                              initialTime: TimeOfDay(
-                                hour: DateTime.now().hour,
-                                minute: DateTime.now().minute,
+                            builder: (context) => Theme(
+                              data: Theme.of(context).copyWith(
+                                timePickerTheme: TimePickerThemeData(
+                                  backgroundColor: TColor.primary,
+                                ),
+                              ),
+                              child: TimePickerDialog(
+                                initialTime: TimeOfDay(
+                                  hour: DateTime.now().hour,
+                                  minute: DateTime.now().minute,
+                                ),
                               ),
                             ),
                           );
