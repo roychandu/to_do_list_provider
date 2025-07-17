@@ -132,7 +132,23 @@ void _showBottomSheet(BuildContext context) {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) => AlertDialog(
+                              content: Container(
+                                width: sizeWidth * .9,
+                                height: sizeheight * .5,
+                                child: TimePickerDialog(
+                                  initialTime: TimeOfDay(
+                                    hour: DateTime.now().hour,
+                                    minute: DateTime.now().minute,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          );
+                        },
                         icon: Image.asset(
                           'assets/tag_icon.png',
                           color: TColor.primaryText,
