@@ -133,22 +133,7 @@ void _showBottomSheet(BuildContext context) {
                       ),
                       IconButton(
                         onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) => Theme(
-                              data: Theme.of(context).copyWith(
-                                timePickerTheme: TimePickerThemeData(
-                                  backgroundColor: TColor.primary,
-                                ),
-                              ),
-                              child: TimePickerDialog(
-                                initialTime: TimeOfDay(
-                                  hour: DateTime.now().hour,
-                                  minute: DateTime.now().minute,
-                                ),
-                              ),
-                            ),
-                          );
+                          _showClock(context);
                         },
                         icon: Image.asset(
                           'assets/tag_icon.png',
@@ -175,6 +160,34 @@ void _showBottomSheet(BuildContext context) {
         ),
       );
     },
+  );
+}
+
+void _showClock(BuildContext context) {
+  showDialog(
+    context: context,
+    builder: (context) => Theme(
+      data: Theme.of(context).copyWith(
+        timePickerTheme: TimePickerThemeData(
+          backgroundColor: TColor.primary,
+          entryModeIconColor: TColor.primaryText,
+          dayPeriodColor: TColor.primaryTextBackground,
+          dayPeriodBorderSide: BorderSide.none,
+          dayPeriodTextColor: TColor.primaryText,
+          hourMinuteColor: TColor.primaryTextBackground,
+          hourMinuteTextColor: TColor.primaryText,
+          helpTextStyle: TextStyle(fontSize: 22, color: TColor.primaryText),
+        ),
+      ),
+      child: TimePickerDialog(
+        helpText: 'Choose Time',
+
+        initialTime: TimeOfDay(
+          hour: DateTime.now().hour,
+          minute: DateTime.now().minute,
+        ),
+      ),
+    ),
   );
 }
 
