@@ -191,6 +191,62 @@ void _showClock(BuildContext context) {
   );
 }
 
+void _showCalender(BuildContext context) {
+  double sizeWidth = MediaQuery.of(context).size.width;
+  double sizeheight = MediaQuery.of(context).size.height;
+  showDialog(
+    context: context,
+    builder: (context) => AlertDialog(
+      backgroundColor: TColor.primary,
+      content: Container(
+        width: sizeWidth * 1,
+
+        height: sizeheight * .45,
+        child: TableCalendar(
+          headerStyle: HeaderStyle(
+            titleTextStyle: TextStyle(color: TColor.primaryText, fontSize: 22),
+            leftChevronIcon: Icon(
+              Icons.arrow_back_ios,
+              color: TColor.primaryText,
+            ),
+            rightChevronIcon: Icon(
+              Icons.arrow_forward_ios,
+              color: TColor.primaryText,
+            ),
+            formatButtonVisible: false,
+            titleCentered: true,
+          ),
+
+          focusedDay: DateTime.now(),
+          firstDay: DateTime.utc(2010, 10, 16),
+          lastDay: DateTime.utc(2030, 3, 14),
+          calendarFormat: CalendarFormat.month,
+          calendarStyle: CalendarStyle(
+            defaultDecoration: BoxDecoration(
+              color: TColor.primaryTextBackground,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            defaultTextStyle: TextStyle(color: TColor.primaryText),
+            weekendDecoration: BoxDecoration(
+              color: TColor.primaryTextBackground,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            weekendTextStyle: TextStyle(color: TColor.primaryText),
+            todayDecoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: TColor.secondaryText,
+            ),
+          ),
+          daysOfWeekStyle: DaysOfWeekStyle(
+            weekdayStyle: TextStyle(color: TColor.primaryText),
+            weekendStyle: TextStyle(color: Colors.red),
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
 class _HomeScreenState extends State<HomeScreen> {
   late List<String> homeTask = [];
   late List<String> celenderTask = [];
