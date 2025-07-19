@@ -258,18 +258,34 @@ void _showTaskPriority(BuildContext context) {
       child: Container(
         width: sizeWidth * 1,
         height: sizeheight * .5,
-        child: Column(
-          children: [
-            Text('Task Priority'),
-            Divider(color: TColor.primaryText, thickness: 2),
-            Expanded(child: Container()),
-            Row(
-              children: [
-                CustomTextButton(text: 'Cancle', onPressed: () {}),
-                CustomelevatedButton(text: 'Save', onPressed: () {}),
-              ],
-            ),
-          ],
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
+          child: Column(
+            spacing: 8,
+            children: [
+              Text(
+                'Task Priority',
+                style: TextStyle(fontSize: 20, color: TColor.primaryText),
+              ),
+              Divider(color: TColor.primaryText),
+              Expanded(child: Container(color: TColor.primaryText)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Flexible(
+                    fit: FlexFit.tight,
+                    flex: 2,
+                    child: CustomTextButton(text: 'Cancle', onPressed: () {}),
+                  ),
+                  Flexible(
+                    fit: FlexFit.tight,
+                    flex: 2,
+                    child: CustomelevatedButton(text: 'Save', onPressed: () {}),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     ),
