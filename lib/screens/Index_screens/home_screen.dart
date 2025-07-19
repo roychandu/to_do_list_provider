@@ -247,6 +247,18 @@ void _showCalender(BuildContext context) {
   );
 }
 
+void _showTaskPriority(BuildContext context) {
+  double sizeWidth = MediaQuery.of(context).size.width;
+  double sizeheight = MediaQuery.of(context).size.height;
+  showDialog(
+    context: context,
+    builder: (context) => Dialog(
+      backgroundColor: TColor.primary,
+      child: Container(width: sizeWidth * 1, height: sizeheight * .5),
+    ),
+  );
+}
+
 class _HomeScreenState extends State<HomeScreen> {
   late List<String> homeTask = [];
   late List<String> celenderTask = [];
@@ -264,7 +276,8 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _showBottomSheet(context);
+      // _showBottomSheet(context);
+      _showTaskPriority(context);
     });
   }
 
