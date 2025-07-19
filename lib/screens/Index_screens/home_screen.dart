@@ -254,6 +254,7 @@ void _showTaskPriority(BuildContext context) {
   showDialog(
     context: context,
     builder: (context) => Dialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       backgroundColor: TColor.primary,
       child: Container(
         width: sizeWidth * 1,
