@@ -269,7 +269,20 @@ void _showTaskPriority(BuildContext context) {
                 style: TextStyle(fontSize: 20, color: TColor.primaryText),
               ),
               Divider(color: TColor.primaryText),
-              Expanded(child: Container(color: TColor.primaryText)),
+              Expanded(
+                child: GridView.builder(
+                  itemCount: 10,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 4,
+                    crossAxisSpacing: 12,
+                    mainAxisSpacing: 12,
+                    childAspectRatio: 1,
+                  ),
+                  itemBuilder: (context, index) {
+                    return Container(color: TColor.primaryText);
+                  },
+                ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
