@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
+import 'package:to_do_list_provider/common_widgets/Custom_button.dart';
 import 'package:to_do_list_provider/common_widgets/color_extension.dart';
 import 'package:to_do_list_provider/screens/Index_screens/Tabs_screens/celender_tab_screen.dart';
 import 'package:to_do_list_provider/screens/Index_screens/Tabs_screens/focuse_tab_screen.dart';
@@ -254,7 +255,23 @@ void _showTaskPriority(BuildContext context) {
     context: context,
     builder: (context) => Dialog(
       backgroundColor: TColor.primary,
-      child: Container(width: sizeWidth * 1, height: sizeheight * .5),
+      child: Container(
+        width: sizeWidth * 1,
+        height: sizeheight * .5,
+        child: Column(
+          children: [
+            Text('Task Priority'),
+            Divider(color: TColor.primaryText, thickness: 2),
+            Expanded(child: Container()),
+            Row(
+              children: [
+                CustomTextButton(text: 'Cancle', onPressed: () {}),
+                CustomelevatedButton(text: 'Save', onPressed: () {}),
+              ],
+            ),
+          ],
+        ),
+      ),
     ),
   );
 }
