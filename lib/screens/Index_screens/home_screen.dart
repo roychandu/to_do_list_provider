@@ -273,14 +273,14 @@ void _showTaskPriority(BuildContext context) {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Flexible(
-                    fit: FlexFit.tight,
-                    flex: 2,
-                    child: CustomTextButton(text: 'Cancle', onPressed: () {}),
+                  Expanded(
+                    child: CustomTextButton(
+                      text: 'Cancle',
+                      onPressed: () {},
+                      textColor: TColor.secondaryText,
+                    ),
                   ),
-                  Flexible(
-                    fit: FlexFit.tight,
-                    flex: 2,
+                  Expanded(
                     child: CustomelevatedButton(text: 'Save', onPressed: () {}),
                   ),
                 ],

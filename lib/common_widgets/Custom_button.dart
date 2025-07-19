@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:to_do_list_provider/common_widgets/color_extension.dart';
 
 class CustomelevatedButton extends StatelessWidget {
   final String text;
@@ -26,9 +27,15 @@ class CustomelevatedButton extends StatelessWidget {
 }
 
 class CustomTextButton extends StatefulWidget {
+  Color? textColor;
   String text;
   VoidCallback onPressed;
-  CustomTextButton({super.key, required this.text, required this.onPressed});
+  CustomTextButton({
+    super.key,
+    required this.text,
+    required this.onPressed,
+    this.textColor,
+  });
 
   @override
   State<CustomTextButton> createState() => _CustomTextButtonState();
@@ -41,7 +48,10 @@ class _CustomTextButtonState extends State<CustomTextButton> {
       onPressed: widget.onPressed,
       child: Text(
         widget.text,
-        style: TextStyle(color: Colors.white, fontSize: 16),
+        style: TextStyle(
+          color: widget.textColor ?? TColor.primaryText,
+          fontSize: 16,
+        ),
       ),
     );
   }
