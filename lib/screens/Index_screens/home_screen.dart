@@ -258,7 +258,7 @@ void _showTaskPriority(BuildContext context) {
       backgroundColor: TColor.primary,
       child: Container(
         width: sizeWidth * 1,
-        height: sizeheight * .5,
+        height: sizeheight * .4,
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
           child: Column(
@@ -279,7 +279,25 @@ void _showTaskPriority(BuildContext context) {
                     childAspectRatio: 1,
                   ),
                   itemBuilder: (context, index) {
-                    return Container(color: TColor.primaryText);
+                    return Container(
+                      decoration: BoxDecoration(
+                        color: TColor.primaryTextBackground,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Image.asset('assets/flag_icon.png'),
+                          Text(
+                            '${index + 1}',
+                            style: TextStyle(
+                              color: TColor.primaryText,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
                   },
                 ),
               ),
