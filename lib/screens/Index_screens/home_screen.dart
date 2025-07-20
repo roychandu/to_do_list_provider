@@ -40,6 +40,7 @@ void _showBottomSheet(BuildContext context) {
                 style: TextStyle(color: TColor.primaryText, fontSize: 25),
               ),
               TextField(
+                style: TextStyle(color: TColor.primaryText, fontSize: 20),
                 decoration: InputDecoration(
                   hint: Text(
                     'Enter your task',
@@ -51,12 +52,16 @@ void _showBottomSheet(BuildContext context) {
                 ),
               ),
               TextField(
+                style: TextStyle(color: TColor.primaryText, fontSize: 20),
                 decoration: InputDecoration(
                   hint: Text(
                     'Description',
                     style: TextStyle(color: TColor.primaryText, fontSize: 18),
                   ),
-                  border: OutlineInputBorder(borderSide: BorderSide.none),
+                  border: InputBorder.none,
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: TColor.primaryText),
+                  ),
                 ),
               ),
               Row(
@@ -352,8 +357,8 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // _showBottomSheet(context);
-      _showTaskPriority(context);
+      _showBottomSheet(context);
+      // _showTaskPriority(context);
     });
   }
 
