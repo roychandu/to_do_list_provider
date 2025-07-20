@@ -142,7 +142,9 @@ void _showBottomSheet(BuildContext context) {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          _showTaskPriority(context);
+                        },
                         icon: Image.asset(
                           'assets/flag_icon.png',
                           color: TColor.primaryText,
@@ -249,6 +251,7 @@ void _showCalender(BuildContext context) {
 }
 
 void _showTaskPriority(BuildContext context) {
+  int selectedIndex = 0;
   double sizeWidth = MediaQuery.of(context).size.width;
   double sizeheight = MediaQuery.of(context).size.height;
   showDialog(
@@ -279,23 +282,31 @@ void _showTaskPriority(BuildContext context) {
                     childAspectRatio: 1,
                   ),
                   itemBuilder: (context, index) {
-                    return Container(
-                      decoration: BoxDecoration(
-                        color: TColor.primaryTextBackground,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Image.asset('assets/flag_icon.png'),
-                          Text(
-                            '${index + 1}',
-                            style: TextStyle(
-                              color: TColor.primaryText,
-                              fontSize: 18,
+                    bool isSelected = selectedIndex == index;
+                    return GestureDetector(
+                      onTap: () {
+                        selectedIndex = index;
+                      },
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: isSelected
+                              ? TColor.secondaryText
+                              : TColor.primaryTextBackground,
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Image.asset('assets/flag_icon.png'),
+                            Text(
+                              '${index + 1}',
+                              style: TextStyle(
+                                color: TColor.primaryText,
+                                fontSize: 18,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     );
                   },
