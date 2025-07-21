@@ -205,6 +205,7 @@ void _showCalender(BuildContext context) {
   showDialog(
     context: context,
     builder: (context) => AlertDialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       backgroundColor: TColor.primary,
       content: Container(
         width: sizeWidth * 1,
@@ -251,6 +252,15 @@ void _showCalender(BuildContext context) {
           ),
         ),
       ),
+      actions: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            CustomTextButton(text: 'Cancel', onPressed: () {}),
+            CustomelevatedButton(text: 'Choose Date', onPressed: () {}),
+          ],
+        ),
+      ],
     ),
   );
 }
@@ -357,8 +367,9 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _showBottomSheet(context);
+      // _showBottomSheet(context);
       // _showTaskPriority(context);
+      _showCalender(context);
     });
   }
 
