@@ -71,66 +71,7 @@ void _showBottomSheet(BuildContext context) {
                     children: [
                       IconButton(
                         onPressed: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) => AlertDialog(
-                              backgroundColor: TColor.primary,
-                              content: Container(
-                                width: sizeWidth * 1,
-
-                                height: sizeheight * .45,
-                                child: TableCalendar(
-                                  headerStyle: HeaderStyle(
-                                    titleTextStyle: TextStyle(
-                                      color: TColor.primaryText,
-                                      fontSize: 22,
-                                    ),
-                                    leftChevronIcon: Icon(
-                                      Icons.arrow_back_ios,
-                                      color: TColor.primaryText,
-                                    ),
-                                    rightChevronIcon: Icon(
-                                      Icons.arrow_forward_ios,
-                                      color: TColor.primaryText,
-                                    ),
-                                    formatButtonVisible: false,
-                                    titleCentered: true,
-                                  ),
-
-                                  focusedDay: DateTime.now(),
-                                  firstDay: DateTime.utc(2010, 10, 16),
-                                  lastDay: DateTime.utc(2030, 3, 14),
-                                  calendarFormat: CalendarFormat.month,
-                                  calendarStyle: CalendarStyle(
-                                    defaultDecoration: BoxDecoration(
-                                      color: TColor.primaryTextBackground,
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    defaultTextStyle: TextStyle(
-                                      color: TColor.primaryText,
-                                    ),
-                                    weekendDecoration: BoxDecoration(
-                                      color: TColor.primaryTextBackground,
-                                      borderRadius: BorderRadius.circular(8),
-                                    ),
-                                    weekendTextStyle: TextStyle(
-                                      color: TColor.primaryText,
-                                    ),
-                                    todayDecoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8),
-                                      color: TColor.secondaryText,
-                                    ),
-                                  ),
-                                  daysOfWeekStyle: DaysOfWeekStyle(
-                                    weekdayStyle: TextStyle(
-                                      color: TColor.primaryText,
-                                    ),
-                                    weekendStyle: TextStyle(color: Colors.red),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          );
+                          _showCalender(context);
                         },
                         icon: Icon(
                           Icons.timer_outlined,
@@ -138,9 +79,7 @@ void _showBottomSheet(BuildContext context) {
                         ),
                       ),
                       IconButton(
-                        onPressed: () {
-                          _showClock(context);
-                        },
+                        onPressed: () {},
                         icon: Image.asset(
                           'assets/tag_icon.png',
                           color: TColor.primaryText,
@@ -158,7 +97,9 @@ void _showBottomSheet(BuildContext context) {
                     ],
                   ),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _showCalender(context);
+                    },
                     icon: Image.asset('assets/send_icon.png'),
                   ),
                 ],
@@ -171,8 +112,8 @@ void _showBottomSheet(BuildContext context) {
   );
 }
 
-void _showClock(BuildContext context) {
-  showDialog(
+void _showClock(BuildContext context) async {
+  TimeOfDay? pickedTime = await showDialog<TimeOfDay>(
     context: context,
     builder: (context) => Theme(
       data: Theme.of(context).copyWith(
@@ -189,7 +130,6 @@ void _showClock(BuildContext context) {
       ),
       child: TimePickerDialog(
         helpText: 'Choose Time',
-
         initialTime: TimeOfDay(
           hour: DateTime.now().hour,
           minute: DateTime.now().minute,
@@ -197,6 +137,12 @@ void _showClock(BuildContext context) {
       ),
     ),
   );
+  if (pickedTime != null) {
+    Navigator.of(context).pop();
+    _showTaskPriority(context);
+  } else {
+    Navigator.of(context).pop();
+  }
 }
 
 void _showCalender(BuildContext context) {
@@ -256,8 +202,19 @@ void _showCalender(BuildContext context) {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            CustomTextButton(text: 'Cancel', onPressed: () {}),
-            CustomelevatedButton(text: 'Choose Date', onPressed: () {}),
+            CustomTextButton(
+              text: 'Cancel',
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              textColor: TColor.secondaryText,
+            ),
+            CustomelevatedButton(
+              text: 'Choose Date',
+              onPressed: () {
+                _showClock(context);
+              },
+            ),
           ],
         ),
       ],
@@ -333,7 +290,9 @@ void _showTaskPriority(BuildContext context) {
                   Expanded(
                     child: CustomTextButton(
                       text: 'Cancle',
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
                       textColor: TColor.secondaryText,
                     ),
                   ),
@@ -367,9 +326,10 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // _showBottomSheet(context);
+      _showBottomSheet(context);
       // _showTaskPriority(context);
-      _showCalender(context);
+      // _showCalender(context);
+      // _showClock(context);
     });
   }
 
