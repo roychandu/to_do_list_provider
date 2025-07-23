@@ -337,6 +337,7 @@ void _showCategory(BuildContext context) {
                       crossAxisCount: 3,
                       mainAxisSpacing: 20,
                       crossAxisSpacing: 20,
+                      mainAxisExtent: sizeheight * 0.12,
                     ),
                     itemBuilder: (context, index) {
                       return Container(color: TColor.secondaryText);
