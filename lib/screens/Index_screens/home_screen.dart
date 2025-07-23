@@ -309,6 +309,56 @@ void _showTaskPriority(BuildContext context) {
   );
 }
 
+void _showCategory(BuildContext context) {
+  double sizeWidth = MediaQuery.of(context).size.width;
+  double sizeheight = MediaQuery.of(context).size.height;
+  showDialog(
+    context: context,
+    builder: (context) => Dialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      backgroundColor: TColor.primary,
+      child: Container(
+        width: sizeWidth * 1,
+        height: sizeheight * .7,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+          child: Column(
+            children: [
+              Text(
+                'Choose Category',
+                style: TextStyle(color: TColor.primaryText, fontSize: 18),
+              ),
+              Divider(color: TColor.primaryText),
+              Expanded(
+                child: Container(
+                  child: GridView.builder(
+                    itemCount: 11,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      mainAxisSpacing: 20,
+                      crossAxisSpacing: 20,
+                    ),
+                    itemBuilder: (context, index) {
+                      return Container(color: TColor.secondaryText);
+                    },
+                  ),
+                ),
+              ),
+              SizedBox(
+                width: double.infinity,
+                child: CustomelevatedButton(
+                  text: 'Add Category',
+                  onPressed: () {},
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
 class _HomeScreenState extends State<HomeScreen> {
   late List<String> homeTask = [];
   late List<String> celenderTask = [];
@@ -326,10 +376,11 @@ class _HomeScreenState extends State<HomeScreen> {
     // TODO: implement initState
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      _showBottomSheet(context);
+      // _showBottomSheet(context);
       // _showTaskPriority(context);
       // _showCalender(context);
       // _showClock(context);
+      _showCategory(context);
     });
   }
 
