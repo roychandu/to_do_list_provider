@@ -318,6 +318,13 @@ List<CategoryButtons> categoryButtonList = [
     boxColor: Color(0xffCCFF80),
     iconColor: Color(0xff21A300),
   ),
+  CategoryButtons(
+    iconData: Icons.work_outline_rounded,
+    label: 'Work',
+    onpress: () {},
+    boxColor: Color(0xffFF9680),
+    iconColor: Color(0xffA31D00),
+  ),
 ];
 void _showCategory(BuildContext context) {
   double sizeWidth = MediaQuery.of(context).size.width;
