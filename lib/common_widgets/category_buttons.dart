@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_list_provider/common_widgets/color_extension.dart';
 
 class CategoryButtons extends StatefulWidget {
-  Color boxColor, labelColor;
+  Color boxColor, iconColor;
   IconData iconData;
   String label;
   VoidCallback onpress;
@@ -11,7 +12,7 @@ class CategoryButtons extends StatefulWidget {
     required this.label,
     required this.onpress,
     required this.boxColor,
-    required this.labelColor,
+    required this.iconColor,
   });
 
   @override
@@ -21,17 +22,24 @@ class CategoryButtons extends StatefulWidget {
 class _CategoryButtonsState extends State<CategoryButtons> {
   @override
   Widget build(BuildContext context) {
+    double sizeheight = MediaQuery.of(context).size.height;
+    double sizeWidth = MediaQuery.of(context).size.width;
     return Column(
       spacing: 10,
       children: [
         GestureDetector(
           onTap: widget.onpress,
           child: Container(
-            child: Icon(widget.iconData),
-            decoration: BoxDecoration(color: widget.boxColor),
+            height: sizeheight * 0.065,
+            width: sizeWidth * 0.17,
+            child: Icon(widget.iconData, size: 35, color: widget.iconColor),
+            decoration: BoxDecoration(
+              color: widget.boxColor,
+              borderRadius: BorderRadius.circular(8),
+            ),
           ),
         ),
-        Text(widget.label, style: TextStyle(color: widget.labelColor)),
+        Text(widget.label, style: TextStyle(color: TColor.primaryText)),
       ],
     );
   }

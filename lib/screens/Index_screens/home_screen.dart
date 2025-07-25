@@ -310,6 +310,15 @@ void _showTaskPriority(BuildContext context) {
   );
 }
 
+List<CategoryButtons> categoryButtonList = [
+  CategoryButtons(
+    iconData: Icons.local_grocery_store_rounded,
+    label: 'Grocery',
+    onpress: () {},
+    boxColor: Color(0xffCCFF80),
+    iconColor: Color(0xff21A300),
+  ),
+];
 void _showCategory(BuildContext context) {
   double sizeWidth = MediaQuery.of(context).size.width;
   double sizeheight = MediaQuery.of(context).size.height;
@@ -332,15 +341,21 @@ void _showCategory(BuildContext context) {
               Divider(color: TColor.primaryText),
               Expanded(
                 child: GridView.builder(
-                  itemCount: 11,
+                  itemCount: categoryButtonList.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     mainAxisSpacing: 20,
                     crossAxisSpacing: 20,
-                    mainAxisExtent: sizeheight * 0.12,
                   ),
                   itemBuilder: (context, index) {
-                    return Container(color: TColor.secondaryText);
+                    final items = categoryButtonList[index];
+                    return CategoryButtons(
+                      iconData: items.iconData,
+                      label: items.label,
+                      onpress: items.onpress,
+                      boxColor: items.boxColor,
+                      iconColor: items.iconColor,
+                    );
                   },
                 ),
               ),
