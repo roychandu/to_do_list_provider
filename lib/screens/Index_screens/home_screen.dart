@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:to_do_list_provider/common_widgets/Custom_button.dart';
+import 'package:to_do_list_provider/common_widgets/category_buttons.dart';
 import 'package:to_do_list_provider/common_widgets/color_extension.dart';
 import 'package:to_do_list_provider/screens/Index_screens/Tabs_screens/celender_tab_screen.dart';
 import 'package:to_do_list_provider/screens/Index_screens/Tabs_screens/focuse_tab_screen.dart';
@@ -330,19 +331,17 @@ void _showCategory(BuildContext context) {
               ),
               Divider(color: TColor.primaryText),
               Expanded(
-                child: Container(
-                  child: GridView.builder(
-                    itemCount: 11,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 3,
-                      mainAxisSpacing: 20,
-                      crossAxisSpacing: 20,
-                      mainAxisExtent: sizeheight * 0.12,
-                    ),
-                    itemBuilder: (context, index) {
-                      return Container(color: TColor.secondaryText);
-                    },
+                child: GridView.builder(
+                  itemCount: 11,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 20,
+                    mainAxisExtent: sizeheight * 0.12,
                   ),
+                  itemBuilder: (context, index) {
+                    return Container(color: TColor.secondaryText);
+                  },
                 ),
               ),
               SizedBox(
