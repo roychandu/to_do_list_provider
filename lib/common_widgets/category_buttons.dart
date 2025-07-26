@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:to_do_list_provider/common_widgets/color_extension.dart';
 
 class CategoryButtons extends StatefulWidget {
-  Color boxColor, iconColor;
-  IconData iconData;
+  Color boxColor;
+  Image image;
   String label;
   VoidCallback onpress;
   CategoryButtons({
     super.key,
-    required this.iconData,
+    required this.image,
     required this.label,
     required this.onpress,
     required this.boxColor,
-    required this.iconColor,
   });
 
   @override
@@ -30,9 +29,9 @@ class _CategoryButtonsState extends State<CategoryButtons> {
         GestureDetector(
           onTap: widget.onpress,
           child: Container(
-            height: sizeheight * 0.065,
+            height: sizeheight * 0.08,
             width: sizeWidth * 0.17,
-            child: Icon(widget.iconData, size: 35, color: widget.iconColor),
+            child: widget.image,
             decoration: BoxDecoration(
               color: widget.boxColor,
               borderRadius: BorderRadius.circular(8),

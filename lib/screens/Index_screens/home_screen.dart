@@ -312,18 +312,70 @@ void _showTaskPriority(BuildContext context) {
 
 List<CategoryButtons> categoryButtonList = [
   CategoryButtons(
-    iconData: Icons.local_grocery_store_rounded,
+    image: Image.asset('assets/bread_icon.png'),
     label: 'Grocery',
     onpress: () {},
     boxColor: Color(0xffCCFF80),
-    iconColor: Color(0xff21A300),
   ),
   CategoryButtons(
-    iconData: Icons.work_outline_rounded,
+    image: Image.asset('assets/briefcase_icon.png'),
     label: 'Work',
     onpress: () {},
     boxColor: Color(0xffFF9680),
-    iconColor: Color(0xffA31D00),
+  ),
+  CategoryButtons(
+    image: Image.asset('assets/sport_icon.png'),
+    label: 'Sport',
+    onpress: () {},
+    boxColor: Color(0xff80FFFF),
+  ),
+  CategoryButtons(
+    image: Image.asset('assets/design_icon.png'),
+    label: 'Design',
+    onpress: () {},
+    boxColor: Color(0xff80FFD9),
+  ),
+  CategoryButtons(
+    image: Image.asset('assets/univercity_icon.png'),
+    label: 'University',
+    onpress: () {},
+    boxColor: Color(0xff809CFF),
+  ),
+  CategoryButtons(
+    image: Image.asset('assets/megaphone_icon.png'),
+    label: 'Social',
+    onpress: () {},
+    boxColor: Color(0xffFF80EB),
+  ),
+  CategoryButtons(
+    image: Image.asset('assets/music_icon.png'),
+    label: 'Music',
+    onpress: () {},
+    boxColor: Color(0xffFC80FF),
+  ),
+  CategoryButtons(
+    image: Image.asset('assets/heartbeat_icon.png'),
+    label: 'Health',
+    onpress: () {},
+    boxColor: Color(0xff80FFA3),
+  ),
+  CategoryButtons(
+    image: Image.asset('assets/video-camera_icon.png'),
+    label: 'Movie',
+    onpress: () {},
+    boxColor: Color(0xff80D1FF),
+  ),
+  CategoryButtons(
+    image: Image.asset('assets/home_icon.png'),
+    label: 'Home',
+    onpress: () {},
+    boxColor: Color(0xffFFCC80),
+  ),
+  CategoryButtons(
+    image: Image.asset('assets/add_icon.png'),
+    label: 'Create New',
+    onpress: () {},
+    boxColor: Color(0xff80FFD1),
   ),
 ];
 void _showCategory(BuildContext context) {
@@ -353,15 +405,15 @@ void _showCategory(BuildContext context) {
                     crossAxisCount: 3,
                     mainAxisSpacing: 20,
                     crossAxisSpacing: 20,
+                    mainAxisExtent: 110,
                   ),
                   itemBuilder: (context, index) {
                     final items = categoryButtonList[index];
                     return CategoryButtons(
-                      iconData: items.iconData,
+                      image: items.image,
                       label: items.label,
                       onpress: items.onpress,
                       boxColor: items.boxColor,
-                      iconColor: items.iconColor,
                     );
                   },
                 ),
