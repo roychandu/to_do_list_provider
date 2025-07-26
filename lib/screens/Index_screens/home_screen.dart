@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:to_do_list_provider/common_widgets/Custom_button.dart';
+import 'package:to_do_list_provider/common_widgets/Input_text.dart';
 import 'package:to_do_list_provider/common_widgets/category_buttons.dart';
 import 'package:to_do_list_provider/common_widgets/color_extension.dart';
 import 'package:to_do_list_provider/screens/Index_screens/Tabs_screens/celender_tab_screen.dart';
@@ -436,7 +437,73 @@ void _showCategory(BuildContext context) {
 }
 
 void _showCreateNewCategory(BuildContext context) {
-  showDialog(context: context, builder: (context) => Dialog());
+  TextEditingController categoryNameController = TextEditingController();
+  double sizeWidth = MediaQuery.of(context).size.width;
+  double sizeheight = MediaQuery.of(context).size.height;
+  showDialog(
+    context: context,
+    builder: (context) => Dialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      backgroundColor: TColor.primary,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
+        child: Container(
+          width: sizeWidth * 1,
+          height: sizeheight * 1,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                spacing: 8,
+                children: [
+                  Text(
+                    'Create new category',
+                    style: TextStyle(color: TColor.primaryText, fontSize: 24),
+                  ),
+                  CustomInputText(
+                    text: 'Category name',
+                    hint: 'Category name',
+                    controller: categoryNameController,
+                  ),
+                  Text(
+                    'Category icon:',
+                    style: TextStyle(
+                      color: TColor.primaryText,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  CustomelevatedButton(
+                    text: 'Choose icon from library',
+                    onPressed: () {},
+                  ),
+                  Text(
+                    'Category color',
+                    style: TextStyle(
+                      color: TColor.primaryText,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  CustomTextButton(text: 'Cancel', onPressed: () {}),
+                  CustomelevatedButton(
+                    text: 'Create Category',
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
 }
 
 class _HomeScreenState extends State<HomeScreen> {
@@ -460,7 +527,8 @@ class _HomeScreenState extends State<HomeScreen> {
       // _showTaskPriority(context);
       // _showCalender(context);
       // _showClock(context);
-      _showCategory(context);
+      // _showCategory(context);
+      _showCreateNewCategory(context);
     });
   }
 
