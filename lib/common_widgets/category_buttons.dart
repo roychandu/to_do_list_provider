@@ -5,7 +5,7 @@ class CategoryButtons extends StatefulWidget {
   Color boxColor;
   Image image;
   String label;
-  VoidCallback onpress;
+  Function(BuildContext context) onpress;
   CategoryButtons({
     super.key,
     required this.image,
@@ -27,7 +27,7 @@ class _CategoryButtonsState extends State<CategoryButtons> {
       spacing: 10,
       children: [
         GestureDetector(
-          onTap: widget.onpress,
+          onTap: () => widget.onpress(context),
           child: Container(
             height: sizeheight * 0.08,
             width: sizeWidth * 0.17,

@@ -314,67 +314,69 @@ List<CategoryButtons> categoryButtonList = [
   CategoryButtons(
     image: Image.asset('assets/bread_icon.png'),
     label: 'Grocery',
-    onpress: () {},
+    onpress: (context) {},
     boxColor: Color(0xffCCFF80),
   ),
   CategoryButtons(
     image: Image.asset('assets/briefcase_icon.png'),
     label: 'Work',
-    onpress: () {},
+    onpress: (context) {},
     boxColor: Color(0xffFF9680),
   ),
   CategoryButtons(
     image: Image.asset('assets/sport_icon.png'),
     label: 'Sport',
-    onpress: () {},
+    onpress: (context) {},
     boxColor: Color(0xff80FFFF),
   ),
   CategoryButtons(
     image: Image.asset('assets/design_icon.png'),
     label: 'Design',
-    onpress: () {},
+    onpress: (context) {},
     boxColor: Color(0xff80FFD9),
   ),
   CategoryButtons(
     image: Image.asset('assets/univercity_icon.png'),
     label: 'University',
-    onpress: () {},
+    onpress: (context) {},
     boxColor: Color(0xff809CFF),
   ),
   CategoryButtons(
     image: Image.asset('assets/megaphone_icon.png'),
     label: 'Social',
-    onpress: () {},
+    onpress: (context) {},
     boxColor: Color(0xffFF80EB),
   ),
   CategoryButtons(
     image: Image.asset('assets/music_icon.png'),
     label: 'Music',
-    onpress: () {},
+    onpress: (context) {},
     boxColor: Color(0xffFC80FF),
   ),
   CategoryButtons(
     image: Image.asset('assets/heartbeat_icon.png'),
     label: 'Health',
-    onpress: () {},
+    onpress: (context) {},
     boxColor: Color(0xff80FFA3),
   ),
   CategoryButtons(
     image: Image.asset('assets/video-camera_icon.png'),
     label: 'Movie',
-    onpress: () {},
+    onpress: (context) {},
     boxColor: Color(0xff80D1FF),
   ),
   CategoryButtons(
     image: Image.asset('assets/home_icon.png'),
     label: 'Home',
-    onpress: () {},
+    onpress: (context) {},
     boxColor: Color(0xffFFCC80),
   ),
   CategoryButtons(
     image: Image.asset('assets/add_icon.png'),
     label: 'Create New',
-    onpress: () {},
+    onpress: (context) {
+      _showCreateNewCategory(context);
+    },
     boxColor: Color(0xff80FFD1),
   ),
 ];
@@ -431,6 +433,10 @@ void _showCategory(BuildContext context) {
       ),
     ),
   );
+}
+
+void _showCreateNewCategory(BuildContext context) {
+  showDialog(context: context, builder: (context) => Dialog());
 }
 
 class _HomeScreenState extends State<HomeScreen> {
