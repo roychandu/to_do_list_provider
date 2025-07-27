@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_iconpicker/Models/configuration.dart';
+import 'package:flutter_iconpicker/flutter_iconpicker.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:to_do_list_provider/common_widgets/Custom_button.dart';
 import 'package:to_do_list_provider/common_widgets/Input_text.dart';
@@ -454,6 +456,25 @@ List<Color> categoryColor = [
   Color(0xffFFCC80),
   Color(0xff80FFD1),
 ];
+
+Icon? _icon;
+Future<void> _pickIcon(BuildContext context) async {
+  IconPickerIcon? icon = await showIconPicker(
+    context,
+    configuration: SinglePickerConfiguration(
+      iconPackModes: [
+        IconPack.fontAwesomeIcons,
+        IconPack.allMaterial,
+        IconPack.material,
+        IconPack.cupertino,
+      ],
+    ),
+  );
+  if (icon != null) {
+    _icon = Icon(icon.data);
+  }
+}
+
 void _showCreateNewCategory(BuildContext context) {
   TextEditingController categoryNameController = TextEditingController();
   double sizeWidth = MediaQuery.of(context).size.width;
@@ -494,8 +515,11 @@ void _showCreateNewCategory(BuildContext context) {
                   ),
                   CustomelevatedButton(
                     text: 'Choose icon from library',
-                    onPressed: () {},
+                    onPressed: () {
+                      _pickIcon(context);
+                    },
                   ),
+
                   Text(
                     'Category color',
                     style: TextStyle(
