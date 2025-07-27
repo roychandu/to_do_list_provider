@@ -436,6 +436,24 @@ void _showCategory(BuildContext context) {
   );
 }
 
+List<Color> categoryColor = [
+  Color(0xffC9CC41),
+  Color(0xff66CC41),
+  Color(0xff41CCA7),
+  Color(0xff4181CC),
+  Color(0xff41A2CC),
+  Color(0xffCC8441),
+  Color(0xff9741CC),
+  Color(0xffCC4173),
+  Color(0xffCCFF80),
+  Color(0xffFF9680),
+  Color(0xff41CCA7),
+  Color(0xffFC80FF),
+  Color(0xff80FFA3),
+  Color(0xff80D1FF),
+  Color(0xffFFCC80),
+  Color(0xff80FFD1),
+];
 void _showCreateNewCategory(BuildContext context) {
   TextEditingController categoryNameController = TextEditingController();
   double sizeWidth = MediaQuery.of(context).size.width;
@@ -484,6 +502,21 @@ void _showCreateNewCategory(BuildContext context) {
                       color: TColor.primaryText,
                       fontSize: 18,
                       fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  Container(
+                    height: sizeheight * 0.1,
+                    child: ListView.builder(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: categoryColor.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 6),
+                          child: CircleAvatar(
+                            backgroundColor: categoryColor[index],
+                          ),
+                        );
+                      },
                     ),
                   ),
                 ],
