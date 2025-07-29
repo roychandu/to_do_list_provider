@@ -457,105 +457,124 @@ List<Color> categoryColor = [
   Color(0xff80FFD1),
 ];
 
-Icon? _icon;
-Future<void> _pickIcon(BuildContext context) async {
-  IconPickerIcon? icon = await showIconPicker(
-    context,
-    configuration: SinglePickerConfiguration(
-      iconPackModes: [
-        IconPack.fontAwesomeIcons,
-        IconPack.allMaterial,
-        IconPack.material,
-        IconPack.cupertino,
-      ],
-    ),
-  );
-  if (icon != null) {
-    _icon = Icon(icon.data);
-  }
-}
-
 void _showCreateNewCategory(BuildContext context) {
   TextEditingController categoryNameController = TextEditingController();
   double sizeWidth = MediaQuery.of(context).size.width;
   double sizeheight = MediaQuery.of(context).size.height;
+  Color? selectedColor;
+  Icon? selectedIcon;
   showDialog(
     context: context,
-    builder: (context) => Dialog(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      backgroundColor: TColor.primary,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
-        child: Container(
-          width: sizeWidth * 1,
-          height: sizeheight * 1,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                spacing: 8,
-                children: [
-                  Text(
-                    'Create new category',
-                    style: TextStyle(color: TColor.primaryText, fontSize: 24),
-                  ),
-                  CustomInputText(
-                    text: 'Category name',
-                    hint: 'Category name',
-                    controller: categoryNameController,
-                  ),
-                  Text(
-                    'Category icon:',
-                    style: TextStyle(
-                      color: TColor.primaryText,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w300,
+    builder: (context) => StatefulBuilder(
+      builder: (context, setState) => Dialog(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        backgroundColor: TColor.primary,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 14),
+          child: Container(
+            width: sizeWidth * 1,
+            height: sizeheight * 1,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  spacing: 8,
+                  children: [
+                    Text(
+                      'Create new category',
+                      style: TextStyle(color: TColor.primaryText, fontSize: 24),
                     ),
-                  ),
-                  CustomelevatedButton(
-                    text: 'Choose icon from library',
-                    onPressed: () {
-                      _pickIcon(context);
-                    },
-                  ),
-
-                  Text(
-                    'Category color',
-                    style: TextStyle(
-                      color: TColor.primaryText,
-                      fontSize: 18,
-                      fontWeight: FontWeight.w300,
+                    CustomInputText(
+                      text: 'Category name',
+                      hint: 'Category name',
+                      controller: categoryNameController,
                     ),
-                  ),
-                  Container(
-                    height: sizeheight * 0.1,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: categoryColor.length,
-                      itemBuilder: (context, index) {
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 6),
-                          child: CircleAvatar(
-                            backgroundColor: categoryColor[index],
+                    Text(
+                      'Category icon:',
+                      style: TextStyle(
+                        color: TColor.primaryText,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                    CustomelevatedButton(
+                      text: 'Choose icon from library',
+                      onPressed: () async {
+                        IconPickerIcon? icon = await showIconPicker(
+                          context,
+                          configuration: SinglePickerConfiguration(
+                            iconPackModes: [IconPack.material],
                           ),
                         );
+                        if (icon != null) {
+                          setState(() {
+                            selectedIcon = Icon(icon.data);
+                          });
+                          selectedIcon = Icon(icon.data);
+                        }
                       },
                     ),
-                  ),
-                ],
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  CustomTextButton(text: 'Cancel', onPressed: () {}),
-                  CustomelevatedButton(
-                    text: 'Create Category',
-                    onPressed: () {},
-                  ),
-                ],
-              ),
-            ],
+
+                    Text(
+                      'Category color',
+                      style: TextStyle(
+                        color: TColor.primaryText,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w300,
+                      ),
+                    ),
+                    Container(
+                      height: sizeheight * 0.1,
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        itemCount: categoryColor.length,
+                        itemBuilder: (context, index) {
+                          return GestureDetector(
+                            onTap: () {
+                              selectedColor = categoryColor[index];
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 6,
+                              ),
+                              child: CircleAvatar(
+                                backgroundColor: categoryColor[index],
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    CustomTextButton(
+                      text: 'Cancel',
+                      onPressed: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                    CustomelevatedButton(
+                      text: 'Create Category',
+                      onPressed: () {
+                        categoryButtonList.add(
+                          CategoryButtons(
+                            image: Image.asset('${selectedIcon}'),
+                            label: categoryNameController.text,
+                            onpress: (context) {},
+                            boxColor: selectedColor!,
+                          ),
+                        );
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
