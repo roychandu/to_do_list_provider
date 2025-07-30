@@ -598,14 +598,14 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      // _showBottomSheet(context);
-      // _showTaskPriority(context);
-      // _showCalender(context);
-      // _showClock(context);
-      // _showCategory(context);
-      _showCreateNewCategory(context);
-    });
+    // WidgetsBinding.instance.addPostFrameCallback((_) {
+    //   // _showBottomSheet(context);
+    //   // _showTaskPriority(context);
+    //   // _showCalender(context);
+    //   // _showClock(context);
+    //   // _showCategory(context);
+    //   // _showCreateNewCategory(context);
+    // });
   }
 
   @override
@@ -690,7 +690,7 @@ class _HomeScreenState extends State<HomeScreen> {
               if (selected == 0) {
                 _showBottomSheet(context);
               } else if (selected == 1) {
-                celenderTask.add('value1');
+                _showBottomSheet(context);
               } else if (selected == 2) {
                 FocusTask.add('value2');
               }
