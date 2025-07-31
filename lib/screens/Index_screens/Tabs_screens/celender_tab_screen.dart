@@ -13,6 +13,17 @@ class CelenderTabScreen extends StatefulWidget {
 
 class _CelenderTabScreenState extends State<CelenderTabScreen> {
   DateTime _selectedDate = DateTime.now();
+  DateTime _focusedMonth = DateTime(DateTime.now().year, DateTime.now().month);
+
+  void _changeMonth(int offset) {
+    setState(() {
+      _focusedMonth = DateTime(
+        _focusedMonth.year,
+        _focusedMonth.month + offset,
+      );
+      _selectedDate = _focusedMonth;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +40,16 @@ class _CelenderTabScreenState extends State<CelenderTabScreen> {
             ? Column(
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      const Icon(
-                        Icons.arrow_back_ios,
-                        size: 16,
-                        color: Colors.white,
+                      GestureDetector(
+                        onTap: () => _changeMonth(-1),
+                        child: const Icon(
+                          Icons.arrow_back_ios,
+                          size: 16,
+                          color: Colors.white,
+                        ),
                       ),
-                      const SizedBox(width: 8),
                       Text(
                         monthYear,
                         style: const TextStyle(
@@ -45,11 +58,13 @@ class _CelenderTabScreenState extends State<CelenderTabScreen> {
                           color: Colors.white,
                         ),
                       ),
-                      const SizedBox(width: 8),
-                      const Icon(
-                        Icons.arrow_forward_ios,
-                        size: 16,
-                        color: Colors.white,
+                      GestureDetector(
+                        onTap: () => _changeMonth(1),
+                        child: const Icon(
+                          Icons.arrow_forward_ios,
+                          size: 16,
+                          color: Colors.white,
+                        ),
                       ),
                     ],
                   ),
@@ -59,12 +74,17 @@ class _CelenderTabScreenState extends State<CelenderTabScreen> {
                       color: TColor.primaryTextBackground,
                     ),
                     child: DatePicker(
-                      DateTime.now(),
+                      _focusedMonth,
                       initialSelectedDate: DateTime.now(),
+                      selectionColor: TColor.secondaryText,
                       selectedTextColor: Colors.white,
-
+                      dateTextStyle: TextStyle(color: TColor.primaryText),
+                      dayTextStyle: TextStyle(color: TColor.primaryText),
+                      monthTextStyle: TextStyle(color: TColor.primaryText),
                       onDateChange: (date) {
-                        setState(() {});
+                        setState(() {
+                          _selectedDate = date;
+                        });
                       },
                     ),
                   ),
